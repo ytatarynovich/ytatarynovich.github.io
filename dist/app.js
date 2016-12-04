@@ -65,18 +65,18 @@
 	        var API_ID = '78306410734c69f481aa7b6cc4cd884c';
 	        var lat = position.lat();
 	        var lon = position.lng();
-	        var api = "http://api.openweathermap.org/data/2.5/find/?lat=" + lat + "&lon=" + lon + "&APPID=" + API_ID + "&cnt=5&units=metric";
+	        var api = "https://api.openweathermap.org/data/2.5/find/?lat=" + lat + "&lon=" + lon + "&APPID=" + API_ID + "&cnt=5&units=metric";
 	        this.getApi(api).then(function (data) {
 	            var converter = new dto_converter_1.default(data);
 	            var cities = converter.parse();
 	            var myCity = cities[0];
-	            document.getElementById('my-location').innerHTML = "\n        <div>\n          <span><b>" + myCity.name + ": </b></span>\n          <img src=\"http://openweathermap.org/img/w/" + myCity.icon + ".png\">\n          <span>" + myCity.temperature + " \u00B0C</span>\n        </div>\n        <div>\n          <span><b>" + myCity.main + ": </b></span>\n          <span>" + myCity.description + "</span>\n        </div>\n      ";
+	            document.getElementById('my-location').innerHTML = "\n        <div>\n          <span><b>" + myCity.name + ": </b></span>\n          <img src=\"https://openweathermap.org/img/w/" + myCity.icon + ".png\">\n          <span>" + myCity.temperature + " \u00B0C</span>\n        </div>\n        <div>\n          <span><b>" + myCity.main + ": </b></span>\n          <span>" + myCity.description + "</span>\n        </div>\n      ";
 	            var iDiv = document.getElementById('city-list');
 	            var otherCities = cities.slice(1);
 	            otherCities.forEach(function (city) {
 	                var innerDiv = document.createElement('div');
 	                innerDiv.className = 'city-wheather';
-	                innerDiv.innerHTML = "\n          <div class=\"city-name\">" + city.name + "</div>\n          <div class=\"city-weather\">\n            <div class=\"temperature\">\n              <div>\n                <img src=\"http://openweathermap.org/img/w/" + city.icon + ".png\">\n              </div>\n              <div>\n                <span>" + city.temperature + " \u00B0C</span>\n              </div>\n            </div>\n            <div class=\"desc\">\n                <div>" + city.main + ":</div>\n                <div>" + city.description + "</div>\n            </div>\n          </div>\n        ";
+	                innerDiv.innerHTML = "\n          <div class=\"city-name\">" + city.name + "</div>\n          <div class=\"city-weather\">\n            <div class=\"temperature\">\n              <div>\n                <img src=\"https://openweathermap.org/img/w/" + city.icon + ".png\">\n              </div>\n              <div>\n                <span>" + city.temperature + " \u00B0C</span>\n              </div>\n            </div>\n            <div class=\"desc\">\n                <div>" + city.main + ":</div>\n                <div>" + city.description + "</div>\n            </div>\n          </div>\n        ";
 	                iDiv.appendChild(innerDiv);
 	            });
 	        });

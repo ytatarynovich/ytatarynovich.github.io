@@ -22,7 +22,7 @@ class WheatherApp {
     const API_ID = '78306410734c69f481aa7b6cc4cd884c'
     let lat = position.lat();
     let lon = position.lng();
-    const api = `https://api.openweathermap.org/data/2.5/find/?lat=${lat}&lon=${lon}&APPID=${API_ID}&cnt=5&units=metric`;
+    const api = `http://api.openweathermap.org/data/2.5/find/?lat=${lat}&lon=${lon}&APPID=${API_ID}&cnt=5&units=metric`;
     this.getApi(api).then((data: any) => {
       let converter = new DtoConverter(data);
       let cities = converter.parse();
@@ -30,7 +30,7 @@ class WheatherApp {
       document.getElementById('my-location').innerHTML = `
         <div>
           <span><b>${myCity.name}: </b></span>
-          <img src="https://openweathermap.org/img/w/${myCity.icon}.png">
+          <img src="http://openweathermap.org/img/w/${myCity.icon}.png">
           <span>${myCity.temperature} °C</span>
         </div>
         <div>
@@ -51,7 +51,7 @@ class WheatherApp {
           <div class="city-weather">
             <div class="temperature">
               <div>
-                <img src="https://openweathermap.org/img/w/${city.icon}.png">
+                <img src="http://openweathermap.org/img/w/${city.icon}.png">
               </div>
               <div>
                 <span>${city.temperature} °C</span>
