@@ -1,0 +1,63 @@
+#my-location {
+  font-size: 18px;
+  padding: 5px;
+  font-family: Roboto Regular
+}
+
+#my-location img {
+    height: 40px;
+    top: 14px;
+    position: relative;
+}
+
+#city-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: Roboto Regular;
+  margin-bottom: 20px;
+}
+
+.city-wheather {
+  flex: 0 0 200px;
+  text-align: center;
+  border: 1px solid #96C0CE;
+  border-radius: 10px;
+  margin: 3px;
+  height: 75px;
+  padding: 5px 0px;
+  word-break: break-all;
+}
+.city-name {
+  border-bottom: 1px solid #BEB9B5;
+  padding: 3px;
+  font-family: Roboto Bold;
+  font-weight: 700;
+}
+
+.city-weather {
+    padding: 3px;
+    display: flex;
+}
+
+.temperature img {
+    width: 40px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.temperature {
+    flex: 1;
+}
+
+.desc {
+    flex: 2;
+    line-height: 25px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=app.css.map*/
