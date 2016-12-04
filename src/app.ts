@@ -18,8 +18,6 @@ function initMap() {
 
 class WheatherApp {
 
-  private _wheather: any;
-
   loadWheather(position: google.maps.LatLng): void {
     const API_ID = '78306410734c69f481aa7b6cc4cd884c'
     let lat = position.lat();
@@ -72,23 +70,14 @@ class WheatherApp {
 
   getApi(url: string): Promise<any> {
     return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      request.open('GET', url);
-
-      request.onload = function() {
-        if (request.status == 200) {
-          resolve(request.response);
-        }
-        else {
-          reject(Error(request.statusText));
-        }
+      window['apiCallback'] = function () {
+        resolve(arguments[0]);
       };
 
-      request.onerror = function() {
-        reject(Error("Network Error"));
-      };
+      let script = document.createElement('script');
+      script.src = `${url}&callback=apiCallback`;
 
-      request.send();
+      document.head.appendChild(script);
     });
   }
 }

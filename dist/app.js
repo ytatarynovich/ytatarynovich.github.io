@@ -83,20 +83,12 @@
 	    };
 	    WheatherApp.prototype.getApi = function (url) {
 	        return new ts_promise_1.default(function (resolve, reject) {
-	            var request = new XMLHttpRequest();
-	            request.open('GET', url);
-	            request.onload = function () {
-	                if (request.status == 200) {
-	                    resolve(request.response);
-	                }
-	                else {
-	                    reject(Error(request.statusText));
-	                }
+	            window['apiCallback'] = function () {
+	                resolve(arguments[0]);
 	            };
-	            request.onerror = function () {
-	                reject(Error("Network Error"));
-	            };
-	            request.send();
+	            var script = document.createElement('script');
+	            script.src = url + "&callback=apiCallback";
+	            document.head.appendChild(script);
 	        });
 	    };
 	    return WheatherApp;
@@ -1784,8 +1776,7 @@
 	    }
 	    DtoConverter.prototype.parse = function () {
 	        var _this = this;
-	        var jsonData = JSON.parse(this._data);
-	        var cities = jsonData['list'];
+	        var cities = this._data['list'];
 	        var wheather = cities.map(function (city) { return _this.parseCity(city); });
 	        return wheather;
 	    };

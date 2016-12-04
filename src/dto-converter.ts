@@ -5,9 +5,7 @@ export default class DtoConverter {
   constructor(private _data: string) { }
 
   parse(): CityWheather[] {
-    let jsonData = JSON.parse(this._data);
-
-    let cities = jsonData['list'];
+    let cities = this._data['list'];
     let wheather = cities.map((city: CityDto) => this.parseCity(city));
 
     return wheather;
