@@ -1,7 +1,7 @@
 #my-location {
   font-size: 18px;
   padding: 5px;
-  font-family: Roboto Regular
+  margin-top: -20px;
 }
 
 #my-location img {
@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-family: Roboto Regular;
   margin-bottom: 20px;
 }
 
@@ -31,7 +30,6 @@
 .city-name {
   border-bottom: 1px solid #BEB9B5;
   padding: 3px;
-  font-family: Roboto Bold;
   font-weight: 700;
 }
 
