@@ -5,9 +5,9 @@
 }
 
 #my-location img {
-    height: 40px;
-    top: 14px;
-    position: relative;
+  height: 40px;
+  top: 14px;
+  position: relative;
 }
 
 #city-list {
@@ -34,23 +34,23 @@
 }
 
 .city-weather {
-    padding: 3px;
-    display: flex;
+  padding: 3px;
+  display: flex;
 }
 
 .temperature img {
-    width: 40px;
-    margin-top: -5px;
-    margin-bottom: -5px;
+  width: 40px;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 .temperature {
-    flex: 1;
+  flex: 1;
 }
 
 .desc {
-    flex: 2;
-    line-height: 25px;
+  flex: 2;
+  line-height: 25px;
 }
 
 #map {

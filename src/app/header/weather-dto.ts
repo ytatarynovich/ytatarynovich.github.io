@@ -1,4 +1,4 @@
-export default class CityWheather {
+export class CityWheather {
 
     private _name:string;
     private _temperature:number;

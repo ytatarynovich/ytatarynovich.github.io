@@ -1,27 +1,19 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-module.exports = {
-  // The standard entry point and output config
-  entry: "./src/app.ts",
-  output: {
-    path: 'dist',
-    filename: "app.js"
-  },
-  resolve: {
-    // Add '.ts' and '.tsx' as a resolvable extension.
-    extensions: ["", ".ts", ".tsx", ".js"]
-  },
-  module: {
-    loaders: [
-      { test: /\.tsx?$/, loader: "ts-loader" },
-      // Extract css files
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-      }
-    ]
-  },
-  devtool: 'source-map',
-  plugins: [
-      new ExtractTextPlugin('app.css')
-  ]
+/**
+ * @author: @AngularClass
+ */
+
+// Look in ./config folder for webpack.dev.js
+switch (process.env.NODE_ENV) {
+  case 'prod':
+  case 'production':
+    module.exports = require('./config/webpack.prod')({env: 'production'});
+    break;
+  case 'test':
+  case 'testing':
+    module.exports = require('./config/webpack.test')({env: 'test'});
+    break;
+  case 'dev':
+  case 'development':
+  default:
+    module.exports = require('./config/webpack.dev')({env: 'development'});
 }
