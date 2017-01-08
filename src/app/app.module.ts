@@ -15,9 +15,6 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
-/*
- * Platform and Environment providers/directives/pipes
- */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
@@ -25,6 +22,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { HeaderComponent } from './header';
 import {MyLocationComponent} from "./my-location/my-location.component";
+import { MapComponent } from "./map/map.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,9 +37,10 @@ const APP_PROVIDERS = [
   declarations: [
     AppComponent,
     HeaderComponent,
-      MyLocationComponent
+      MyLocationComponent,
+      MapComponent,
   ],
-  imports: [ // import Angular's modules
+  imports: [
     BrowserModule,
     FormsModule,
     HttpModule,

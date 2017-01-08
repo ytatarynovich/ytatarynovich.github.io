@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CityWheather } from './../header/weather-dto';
+import { HttpModule } from '@angular/http';
 
 @Component({
   selector: 'my-location',
